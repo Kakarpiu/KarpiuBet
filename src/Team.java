@@ -26,6 +26,6 @@ public class Team {
     public boolean equals(Object obj){
         if(obj==null || !(obj instanceof Team)) return false;
         Team other = (Team) obj;
-        return this.name == other.name && this.eliminated == other.eliminated;
+        return this.name == other.name;
     }
 }
