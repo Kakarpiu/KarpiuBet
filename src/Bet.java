@@ -14,7 +14,7 @@ public class Bet {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj==null || !(obj instanceof Bet)) return false;
+        if(!(obj instanceof Bet)) return false;
         Bet other = (Bet) obj;
         return this.better == other.better && this.match == other.match;
     }

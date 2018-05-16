@@ -24,7 +24,7 @@ public class Team {
 
     @Override
     public boolean equals(Object obj){
-        if(obj==null || !(obj instanceof Team)) return false;
+        if(!(obj instanceof Team)) return false;
         Team other = (Team) obj;
         return this.name == other.name;
     }
