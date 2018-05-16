@@ -6,16 +6,17 @@ public class Recorder implements Serializable {
 
     private static Hashtable<Class, Vector> RECORDS;
     private static File RECORDS_FILE;
+    private Class subClass;
 
     public Recorder(String filePath){
         Vector record = null;
-        Class childClass = this.getClass();
+        subClass = this.getClass();
 
-        if(RECORDS.contains(childClass))
-            record = RECORDS.get(childClass);
+        if(RECORDS.contains(subClass))
+            record = RECORDS.get(subClass);
         else {
             record = new Vector();
-            RECORDS.put(childClass, record);
+            RECORDS.put(subClass, record);
         }
 
         record.add(this);
@@ -43,7 +44,7 @@ public class Recorder implements Serializable {
         RECORDS = (Hashtable) in.readObject();
     }
 
-    public static void removeFromRecords(Object o){
-
+    public void removeFromRecords(Object o){
+        Vector record = RECORDS.get(subClass);
     }
 }
