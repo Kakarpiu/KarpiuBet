@@ -1,14 +1,16 @@
-public class TeamScore {
+public class TeamScore extends Recorder{
 
     private Team team;
     private int score;
 
     public TeamScore(Team team){
+        super();
         this.team = team;
         score = -1;
     }
 
     public TeamScore(Team team, int score){
+        super();
         this.team = team;
         this.score = score;
     }
@@ -27,6 +29,6 @@ public class TeamScore {
 
     @Override
     public String toString() {
-        return String.format("{0} score: {1}", team, score);
+        return team + " score: " + score;
     }
 }

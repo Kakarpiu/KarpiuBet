@@ -1,6 +1,6 @@
 
 
-public class Bet {
+public class Bet extends Recorder{
 
     private Match match;
     private User better;
@@ -8,6 +8,7 @@ public class Bet {
     private TeamScore awayPrediction = null;
 
     public Bet(Match match, User better){
+        super();
         this.match = match;
         this.better = better;
     }
@@ -28,6 +29,6 @@ public class Bet {
 
     @Override
     public String toString() {
-        return String.format("{1} prediction for {0} is {2}:{3}",better, match, homePrediction.getScore(), awayPrediction.getScore());
+        return better + " prediction for " + match + " is " + homePrediction.getScore() + ":" + awayPrediction.getScore();
     }
 }

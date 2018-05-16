@@ -1,10 +1,11 @@
 
-public class Team {
+public class Team extends Recorder{
 
     private String name;
     private boolean eliminated;
 
     public Team(String name){
+        super();
         this.name = name;
         eliminated = false;
     }

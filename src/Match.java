@@ -1,22 +1,26 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Locale;
 
-public class Match {
+public class Match extends Recorder{
 
     private TeamScore home;
     private TeamScore away;
-    private Calendar kickOff;
+    private LocalDateTime kickOff;
 
-    public Match(Team home, Team away, Calendar kickOff){
+    public Match(Team home, Team away, LocalDateTime kickOff){
+        super();
         this.home = new TeamScore(home);
         this.away = new TeamScore(away);
         this.kickOff = kickOff;
     }
 
-    public Calendar getKickOff() {
+    public LocalDateTime getKickOff() {
         return kickOff;
     }
 
-    public void setKickOff(Calendar kickOff) {
+    public void setKickOff(LocalDateTime kickOff) {
         this.kickOff = kickOff;
     }
 
@@ -41,6 +45,6 @@ public class Match {
 
     @Override
     public String toString() {
-        return String.format("Home: {0}, Away: {1}, KickOff: {2}", home, away, kickOff);
+        return home + " " + away + " " + kickOff.format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm"));
     }
 }
