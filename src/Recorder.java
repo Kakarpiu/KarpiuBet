@@ -2,17 +2,17 @@ import java.io.*;
 import java.util.Hashtable;
 import java.util.Vector;
 
-public class Recorder implements Serializable {
+public abstract class Recorder implements Serializable {
 
-    private static Hashtable<Class, Vector> RECORDS;
+    private static Hashtable<String, Vector> RECORDS = new Hashtable<>();
     private static File RECORDS_FILE;
-    private Class subClass;
+    private String subClass;
 
-    public Recorder(String filePath){
+    public Recorder(){
         Vector record = null;
-        subClass = this.getClass();
+        subClass = this.getClass().getName();
 
-        if(RECORDS.contains(subClass))
+        if(RECORDS.containsKey(subClass))
             record = RECORDS.get(subClass);
         else {
             record = new Vector();
@@ -44,7 +44,22 @@ public class Recorder implements Serializable {
         RECORDS = (Hashtable) in.readObject();
     }
 
-    public void removeFromRecords(Object o){
+    public void removeFromRecord(Object o){
         Vector record = RECORDS.get(subClass);
+        record.remove(o);
+    }
+
+    public static void printRecord(){
+        for(String s : RECORDS.keySet()) {
+            for(Object obj : RECORDS.get(s)){
+                System.out.println(obj);
+            }
+        }
+    }
+
+    public static void printRecord(Class c){
+        for(Object obj : RECORDS.get(c.getName())){
+            System.out.println(obj);
+        }
     }
 }
