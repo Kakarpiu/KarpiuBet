@@ -27,4 +27,9 @@ public class Team {
         Team other = (Team) obj;
         return this.name == other.name;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

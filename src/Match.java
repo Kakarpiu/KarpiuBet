@@ -6,9 +6,9 @@ public class Match {
     private TeamScore away;
     private Calendar kickOff;
 
-    public Match(TeamScore home, TeamScore away, Calendar kickOff){
-        this.home = home;
-        this.away = away;
+    public Match(Team home, Team away, Calendar kickOff){
+        this.home = new TeamScore(home);
+        this.away = new TeamScore(away);
         this.kickOff = kickOff;
     }
 
@@ -37,5 +37,10 @@ public class Match {
         if(!(obj instanceof Match)) return false;
         Match m = (Match) obj;
         return home.getTeam().equals(m.home.getTeam()) && home.getTeam().equals(m.home.getTeam()) && kickOff.equals(m.getKickOff());
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Home: {0}, Away: {1}, KickOff: {2}", home, away, kickOff);
     }
 }
