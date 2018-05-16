@@ -2,6 +2,7 @@
 
 public class Bet extends Recorder{
 
+    private static final long serialVersionUID = 00004;
     private Match match;
     private User better;
     private TeamScore homePrediction = null;

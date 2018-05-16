@@ -1,6 +1,8 @@
+import java.io.Serializable;
 
 public class Team extends Recorder{
 
+    private static final long serialVersionUID = 00002;
     private String name;
     private boolean eliminated;
 

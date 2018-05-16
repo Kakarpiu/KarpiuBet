@@ -2,6 +2,7 @@ import java.util.HashMap;
 
 public class User extends Recorder{
 
+    private static final long serialVersionUID = 00001;
     private String firstName;
     private String lastName;
     private String email;
@@ -49,5 +50,12 @@ public class User extends Recorder{
     @Override
     public String toString() {
         return firstName + " " + lastName + " email: " + email + " score: " + score;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof User)) return false;
+        User u = (User)obj;
+        return firstName.equals(u.firstName) & lastName.equals(u.lastName);
     }
 }

@@ -4,6 +4,7 @@ import java.util.Vector;
 
 public abstract class Recorder implements Serializable {
 
+
     private static Hashtable<String, Vector> RECORDS = new Hashtable<>();
     private static File RECORDS_FILE;
     private String subClass;
@@ -44,9 +45,9 @@ public abstract class Recorder implements Serializable {
         RECORDS = (Hashtable) in.readObject();
     }
 
-    public void removeFromRecord(Object o){
-        Vector record = RECORDS.get(subClass);
-        record.remove(o);
+    public static void removeFromRecord(Class key, Object val){
+        Vector record = RECORDS.get(key.getName());
+        record.remove(val);
     }
 
     public static void printRecord(){
@@ -61,5 +62,9 @@ public abstract class Recorder implements Serializable {
         for(Object obj : RECORDS.get(c.getName())){
             System.out.println(obj);
         }
+    }
+
+    public static Vector getClassRecord(Class c){
+        return RECORDS.get(c.getName());
     }
 }

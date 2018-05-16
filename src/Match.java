@@ -5,6 +5,7 @@ import java.util.Locale;
 
 public class Match extends Recorder{
 
+    private static final long serialVersionUID = 00003;
     private TeamScore home;
     private TeamScore away;
     private LocalDateTime kickOff;

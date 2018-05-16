@@ -1,5 +1,7 @@
 public class TeamScore extends Recorder{
 
+    private static final long serialVersionUID = 00005;
+
     private Team team;
     private int score;
 
